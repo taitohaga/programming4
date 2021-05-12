@@ -1,5 +1,3 @@
-from pathlib import Path
-import os
 from git import Repo
 
 def get_repo(path="."):

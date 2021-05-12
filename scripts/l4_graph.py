@@ -1,4 +1,4 @@
-from l4 import *
+from .l4 import *
 
 def main():
 	import matplotlib.pyplot as plt
