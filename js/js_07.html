@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScriptのテスト</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <p>スクリプト実行</p>
+        <script>
+            function isMultiple(a, n){
+                return a % n == 0;
+            }
+
+            function minFactor(a) {
+                for(var i=2; i<=a/2; i++){
+                    if (isMultiple(a, i)) {
+                        return i;
+                    }
+                }
+                return a;
+            }
+            var num = Number(prompt("数字を入力"));
+            document.write("<p>"+num+"=");
+            var rem = num;
+            while (rem > 1) {
+                var p = minFactor(rem);
+                document.write(p);
+                if (rem != minFactor(rem)) {
+                    document.write("*");
+                }
+                rem = rem / p;
+            }
+        </script>
+    </body>
+</html>
