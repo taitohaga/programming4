@@ -114,7 +114,7 @@ function calculate() {
     for(var i=0; i < row_count; i++){
         var ele = Number(document.getElementById("ele" + i).value);
         var time = Number(document.getElementById("time" + i).value);
-        var sum_dev = ele * time * kwh;
+        var sum_dev = ele * time * kwh / 1000;
         document.getElementById("charge" + i).value = sum_dev;
         sum += sum_dev;
     }
