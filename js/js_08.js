@@ -13,6 +13,12 @@ var kwh = 26;
 
 row_count = 3;
 
+function add_row() {
+    var main_table = document.getElementById("main_table");
+    main_table.appendChild(create_row(row_count));
+    row_count ++;
+}
+
 function create_cell(col, num) {
     var newcell = document.createElement("td");
 
