@@ -50,7 +50,7 @@ function calculate_whole(period=[1, 12]) {
         sums[i] = 0;
         var count = 0;
         for (var j = 0; j < n_records; j++) {
-            if (period[0] <= get_month(data[j][0]) && get_month(data[j][0]) < period[1]) {
+            if (period[0] <= get_month(data[j][0]) && get_month(data[j][0]) <= period[1]) {
                 sums[i] += Number(data[j][i + 1]);
                 count++;
             }
