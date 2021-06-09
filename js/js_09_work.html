@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript 外部ファイルの取り込み</title>
+        <meta charset="utf-8">
+        <script src="./js_09_work.js"></script>
+    </head>
+    <body>
+        <form name="fm">
+            <h2>表示したい場所</h2>
+            <input type="checkbox" name="hikone">彦根
+            <input type="checkbox" name="naha">那覇
+            <input type="checkbox" name="abashiri">網走
+            <h2>項目</h2>
+            <input type="checkbox" name="sunlight">日照時間
+            <input type="checkbox" name="rain">降水量
+            <input type="checkbox" name="temperature">気温
+            <input type="checkbox" name="snow">積雪量
+            <h2>期間</h2>
+            <input type="text" name="start"> - 
+            <input type="text" name="end">月
+            <h2>実行ボタン</h2>
+            <input type="button" onclick="execute();" value="実行!">
+            <h2>表示エリア</h2>
+            <textarea name="results" rows="20" cols="80">
+            </textarea>
+            <br>
+            <input type="button" onClick="downloadText('result.txt', fm.results.value);" value="結果をダウンロード">
+        </form>
+    </body>
+</html>

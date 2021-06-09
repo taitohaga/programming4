@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript 外部ファイルの取り込み</title>
+        <meta charset="utf-8">
+        <script src="./js_09.js"></script>
+    </head>
+    <body onload="summary();">
+        <form name="fm">
+            <input type="text" name="age_0">～
+            <input type="text" name="age_1">
+            <input type="button" value="読み込み!" onclick="read();"><br>
+            <textarea cols="80" rows="20" name="txt1"></textarea><br>
+            <input type="button" value="ダウンロード" onclick="downloadText('Output.txt', fm.txt1.value);">
+        </form>
+    </body>
+</html>
