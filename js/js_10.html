@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>簡易お絵かきツール</title>
+        <meta charset="utf-8">
+        <script src="./js_10.js"></script>
+    </head>
+    <body onload="init();">
+        <form name="fm">
+            <table border="1">
+                <tr>
+                    <td>
+                        <label for="red">赤:</label><input type="text" name="r" value="0" oninput="colorPreview();"><br>
+                        <label for="green">緑:</label><input type="text" name="g" value="0" oninput="colorPreview();"><br>
+                        <label for="blue">青:</label><input type="text" name="b" value="0" oninput="colorPreview();">
+                    </td>
+                    <td>
+                        <canvas id="color_preview" width="80" height="80"></canvas>
+                    </td>
+                    <td>
+                        <canvas id="color_palette" width="200" height="20"
+                            onMousedown="selectColor();"></canvas>
+                    </td>
+                </tr>
+            </table>
+            <input type="radio" name="mode" checked>フリーハンド
+            <input type="radio" name="mode">直線
+            <input type="radio" name="mode">矩形<br>
+            <input type="button" onclick="clear_screen();" value="画面クリア">
+        </form>
+        <canvas id="hcnv" width="1024" height="768"
+            onMousemove="mouseMove();" onMousedown="canvasMousedown();"
+            onMouseup="canvasMouseup();">
+        </canvas>
+    </body>
+</html>
