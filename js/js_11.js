@@ -53,15 +53,15 @@ scene.add(satellite0);
 scene.add(satellite1);
 scene.add(satellite2);
 
-var max_meteors = 500;
-var capacity = 10;
+var max_meteors = 3000;
+var capacity = 800;
 var meteor = [];
 var speed = [];
 var flying = [];
 for (var i = 0; i < max_meteors; i++){
     meteor[i] = add_sphere([10, 10, 10], [get_random(-1000, 1000), get_random(-500, 500), -5200], 0xffffff);
     flying[i] = false;
-    speed[i] = get_random(5, 40);
+    speed[i] = get_random(2, 10);
     scene.add(meteor[i]);
 }
 
