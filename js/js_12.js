@@ -39,17 +39,17 @@ function camera_move() {
 
 var r_camera = 2000;
 
-var sun = getTexture('sun.jpg', geometry='sphere', size=[200, 10, 10]);
+var sun = getTexture(texture='sun.jpg', geometry='sphere', size=[200, 10, 10]);
 var r_sun = 1500;
 sun.position.set(0, 0, 0);
 scene.add(sun);
 
-var earth = getTexture('earth.jpg', geometry='sphere', size=[100, 10, 10]);
+var earth = getTexture(texture='earth.jpg', geometry='sphere', size=[100, 10, 10]);
 var r_earth = 800;
 earth.position.set(r_earth, 0, 0);
 sun.add(earth);
 
-var moon = getTexture('moon.jpg', geometry='sphere', size=[70, 10, 10]);
+var moon = getTexture(texture='moon.jpg', geometry='sphere', size=[70, 10, 10]);
 var r_moon = 400;
 moon.position.set(r_moon, 0, 0);
 earth.add(moon);
