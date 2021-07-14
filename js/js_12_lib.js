@@ -35,7 +35,6 @@ function getTextureLoader(
     } else {
         material = new THREE.MeshStandardMaterial({map: texture_img});
     }
-    console.log(geometry);
     if (geometry == 'sphere') {
         var geometry = new THREE.SphereGeometry(size[0], size[1], size[2]);
         var sphere = new THREE.Mesh(geometry, material);

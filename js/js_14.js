@@ -11,8 +11,11 @@ scene.add(light);
 
 function getVector(loc, width, height) {
     var res = convertLocation(loc, width, height);
+    console.log(res);
     res = rad(res);
+    console.log(res);
     res = vec(res);
+    console.log(res);
     return res;
 }
 
@@ -75,7 +78,8 @@ for (var i = 0; i < texture.length; i++) {
     spheres.push(sp);
 }
 spheres[0].rotation.y = Math.PI / 2;
-spheres[0].rotation.y = Math.PI / 2;
+spheres[1].rotation.y = Math.PI / 2;
+spheres[2].rotation.y = Math.PI / 2;
 
 var current = spheres[0];
 current.scale.set(100, 100, 100);
