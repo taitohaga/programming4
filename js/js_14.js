@@ -28,9 +28,10 @@ function get_annot_locations() {
     return annot_locations;
 }
 var annot_locations = get_annot_locations();
+var img_size = [[10240, 5120], [10240, 5120], [9980, 5315]];
 
 for (var i = 0; i < annot_locations.length; i++) {
-    annot_locations[i] = getVector(annot_locations[i]);
+    annot_locations[i] = getVector(annot_locations[i], img_size[i][0], img_size[i][1]);
     console.log(annot_locations[i]);
 }
 
@@ -78,8 +79,8 @@ for (var i = 0; i < texture.length; i++) {
     spheres.push(sp);
 }
 spheres[0].rotation.y = Math.PI / 2;
-spheres[1].rotation.y = Math.PI / 2;
-spheres[2].rotation.y = Math.PI / 2;
+spheres[1].rotation.y = Math.PI;
+spheres[2].rotation.y = Math.PI;
 
 var current = spheres[0];
 current.scale.set(100, 100, 100);
