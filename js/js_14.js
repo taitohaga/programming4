@@ -22,6 +22,7 @@ function get_annot_locations() {
     annot_locations.push([5188, 2281]);
     annot_locations.push([8877, 2281]);
     annot_locations.push([9146, 2281]);
+    return annot_locations;
 }
 var annot_locations = get_annot_locations();
 
