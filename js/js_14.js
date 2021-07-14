@@ -32,9 +32,9 @@ var img_size = [[10240, 5120], [10240, 5120], [9980, 5315]];
 
 for (var i = 0; i < annot_locations.length; i++) {
     annot_locations[i] = getVector(annot_locations[i], img_size[i][0], img_size[i][1]);
-    console.log(annot_locations[i]);
 }
 
+console.log(annot_locations);
 
 function setLocations() {
     var locations = [];
@@ -81,6 +81,15 @@ for (var i = 0; i < texture.length; i++) {
 spheres[0].rotation.y = Math.PI / 2;
 spheres[1].rotation.y = Math.PI;
 spheres[2].rotation.y = Math.PI;
+
+
+var tannotations = [];
+for (var i = 0; i < annotations.length; i++) {
+    var an = getTextureLoader(annotations[i], 'cube', [7, 3, 0.01]);
+    an.position.set(annot_locations[i][0], annot_locations[i][1], annot_locations[i][2]);
+    an.lookAt(new THREE.Vector3(0, 0, 0));
+    spheres[i].add(an);
+}
 
 var current = spheres[0];
 current.scale.set(100, 100, 100);
