@@ -74,7 +74,7 @@ var annotations = get_annotations();
 var spheres = [];
 for (var i = 0; i < texture.length; i++) {
     var sp = getTextureLoader(texture[i], 'sphere', [30, 30, 30], true);
-    sp.position.set(locations[i][0], locations[i][1], locations[i][2]);
+    sp.position.set(locations[i][0] * 20, locations[i][1] * 20, locations[i][2] * 20);
     scene.add(sp);
     spheres.push(sp);
 }
