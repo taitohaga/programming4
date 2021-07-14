@@ -9,45 +9,33 @@ var light = new THREE.AmbientLight(0xFFFFFF, 2.0);
 scene.add(light);
 
 
-function convertLocation(toilet_loc, img_width, img_height) {
-    var x = toilet_loc[0];
-    var y = toilet_loc[1];
-
-    return [360 * x / img_width, 90 - 180 * y / img_height];
+function getVector(loc, width, height) {
+    var res = convertLocation(loc, width, height);
+    res = rad(res);
+    res = vec(res);
+    return res;
 }
 
-function _rad(arcdegree) {
-    return arcdegree * Math.PI / 180;
+
+function get_annot_locations() {
+    var annot_locations = [];
+    annot_locations.push([5188, 2281]);
+    annot_locations.push([8877, 2281]);
+    annot_locations.push([9146, 2281]);
+}
+var annot_locations = get_annot_locations();
+
+for (var i = 0; i < annot_locations.length; i++) {
+    annot_locations[i] = getVector(annot_locations[i]);
+    console.log(annot_locations[i]);
 }
 
-function rad(arcdegree) {
-    return [_rad(arcdegree[0]), _rad(arcdegree[1])];
-}
-
-function vec(radians) {
-    var theta = radians[0];
-    var phi = radians[1];
-    return [ - Math.cos(theta) * Math.cos(phi), Math.sin(phi), Math.sin(theta) * Math.cos(phi)];
-}
-
-var toilet_loc = [1860, 398];
-console.log(toilet_loc)
-
-var arc_loc = convertLocation(toilet_loc, 1920, 960);
-console.log(arc_loc);
-
-var rad_loc = rad(arc_loc);
-console.log(rad_loc);
-
-var vec_loc = vec(rad_loc);
-console.log(vec_loc);
 
 function setLocations() {
     var locations = [];
     locations.push([0, 0, 0]);
     locations.push([-500, 0, 0]);
-    locations.push([-1000, 0, 1000]);
-    locations.push([-1000, 0, 2500]);
+    locations.push([-1000, 0, 0]);
     return locations
 }
 var locations = setLocations();
@@ -67,11 +55,12 @@ console.log(texture);
 
 
 function get_annotations() {
-    var url = 'https://www.gakujutsu.co.jp/text/isbn978-4-7806-0708-6/file/';
+    var url = './views/';
     var texture = [];
     var loader = new THREE.TextureLoader();
-    texture.push(loader.load(url + 'a1.jpg'));
-    texture.push(loader.load(url + 'a2.jpg'));
+    texture.push(loader.load(url + 'a1.png'));
+    texture.push(loader.load(url + 'a2.png'));
+    texture.push(loader.load(url + 'a3.png'));
     return texture
 }
 var annotations = get_annotations();
@@ -87,10 +76,6 @@ for (var i = 0; i < texture.length; i++) {
 spheres[2].rotation.y = Math.PI / 2;
 
 
-var annot = getTextureLoader(annotations[0], 'cube', [7, 3, 0.01]);
-annot.position.set(vec_loc[0] * 20, vec_loc[1] * 20, vec_loc[2] * 20);
-annot.lookAt(new THREE.Vector3(0, 0, 0));
-spheres[1].add(annot);
 
 var current = spheres[0];
 current.scale.set(100, 100, 100);

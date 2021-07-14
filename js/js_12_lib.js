@@ -1,5 +1,27 @@
 console.log('library');
 
+function convertLocation(toilet_loc, img_width, img_height) {
+    var x = toilet_loc[0];
+    var y = toilet_loc[1];
+
+    return [360 * x / img_width, 90 - 180 * y / img_height];
+}
+
+function _rad(arcdegree) {
+    return arcdegree * Math.PI / 180;
+}
+
+function rad(arcdegree) {
+    return [_rad(arcdegree[0]), _rad(arcdegree[1])];
+}
+
+function vec(radians) {
+    var theta = radians[0];
+    var phi = radians[1];
+    return [ - Math.cos(theta) * Math.cos(phi), Math.sin(phi), Math.sin(theta) * Math.cos(phi)];
+}
+
+
 // l 13: texture_imgを渡して球を取得する
 function getTextureLoader(
     texture_img,
