@@ -73,7 +73,7 @@ for (var i = 0; i < texture.length; i++) {
     scene.add(sp);
     spheres.push(sp);
 }
-spheres[2].rotation.y = Math.PI / 2;
+spheres[0].rotation.y = Math.PI / 2;
 
 
 
