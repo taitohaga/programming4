@@ -75,8 +75,7 @@ for (var i = 0; i < texture.length; i++) {
     spheres.push(sp);
 }
 spheres[0].rotation.y = Math.PI / 2;
-
-
+spheres[0].rotation.y = Math.PI / 2;
 
 var current = spheres[0];
 current.scale.set(100, 100, 100);
