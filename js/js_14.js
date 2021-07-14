@@ -74,7 +74,7 @@ var annotations = get_annotations();
 var spheres = [];
 for (var i = 0; i < texture.length; i++) {
     var sp = getTextureLoader(texture[i], 'sphere', [30, 30, 30], true);
-    sp.position.set(locations[i][0] * 20, locations[i][1] * 20, locations[i][2] * 20);
+    sp.position.set(locations[i][0], locations[i][1], locations[i][2]);
     scene.add(sp);
     spheres.push(sp);
 }
@@ -86,7 +86,7 @@ spheres[2].rotation.y = Math.PI;
 var tannotations = [];
 for (var i = 0; i < annotations.length; i++) {
     var an = getTextureLoader(annotations[i], 'cube', [7, 3, 0.01]);
-    an.position.set(annot_locations[i][0], annot_locations[i][1], annot_locations[i][2]);
+    an.position.set(annot_locations[i][0] * 20, annot_locations[i][1] * 20, annot_locations[i][2] * 20);
     an.lookAt(new THREE.Vector3(0, 0, 0));
     spheres[i].add(an);
 }
