@@ -35,8 +35,8 @@ for (var i = 0; i < annot_locations.length; i++) {
 function setLocations() {
     var locations = [];
     locations.push([0, 0, 0]);
-    locations.push([-500, 0, 0]);
-    locations.push([-1000, 0, 0]);
+    locations.push([500, 0, 0]);
+    locations.push([1000, 0, 0]);
     return locations
 }
 var locations = setLocations();
