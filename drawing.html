@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JS Notebook</title>
+        <meta charset="utf-8">
+        <script src="./drawing.js"></script>
+<style>
+.canvas-wrapper {
+    border-style:solid;
+    position: relative;
+}
+
+.canvas-wrapper canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+</style>
+    </head>
+    <body onload="init();">
+        <form name="fm">
+            <table border="1">
+                <tr>
+                    <td>
+                        <label for="red">赤:</label><input type="text" name="r" value="0" oninput="colorPreview();"><br>
+                        <label for="green">緑:</label><input type="text" name="g" value="0" oninput="colorPreview();"><br>
+                        <label for="blue">青:</label><input type="text" name="b" value="0" oninput="colorPreview();">
+                    </td>
+                    <td>
+                        <canvas id="color_preview" width="80" height="80"></canvas>
+                    </td>
+                    <td>
+                        <canvas id="color_palette" width="180" height="80"
+                            onMousedown="selectColor();"></canvas>
+                    </td>
+                    <td>
+                        <input type="radio" name="mode" checked>フリーハンド<br>
+                        <input type="radio" name="mode">蛍光ペン<br>
+                        <input type="radio" name="mode">直線<br>
+                        <input type="radio" name="mode">矩形
+                        <input type="radio" name="mode">消しゴム<br>
+                        <input type="button" onclick="clear_screen();" value="画面クリア">
+                    </td>
+                    <td>
+                        <input type="radio" name="size">細い<br>
+                        <input type="radio" name="size" checked>中くらい<br>
+                        <input type="radio" name="size">太い<br>
+                        <input type="radio" name="size">とても太い<br>
+                    </td>
+                    <td>
+                        <p>ページ<span id="currentpage">1</span>/<span id="totalpage">1</span></p>
+                        <input type="button" value="<- 前のページ" onclick="switchPages(-1);">
+                        <input type="button" value="次のページ ->" onclick="switchPages(1);"><br>
+                        <input type="button" value="現在のページを削除" onclick="deletePage();">
+                    </td>
+                </tr>
+            </table>
+            <input type="button" value="画像として保存" onclick="saveImages();">
+        </form>
+        <div class="canvas-wrapper">
+            <canvas id="hcnv_m" width="1400" height="620"
+                onMousemove="mouseMove();" onMousedown="canvasMousedown();"
+                onMouseup="canvasMouseup();">
+            </canvas>
+            <canvas id="hcnv" width="1400" height="620"
+                onMousemove="mouseMove();" onMousedown="canvasMousedown();"
+                onMouseup="canvasMouseup();">
+            </canvas>
+        </div>
+    </body>
+</html>
+
